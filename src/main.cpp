@@ -58,18 +58,18 @@ double portalSpeeds(Speed speed, bool isPlayer1) {
     if (isPlayer1) {
         switch (speed) {
             case Speed::Slow: return !enabled ? 0.7 :  (randomSpeed ? speedRandomiser(minSpeedSlowP1, maxSpeedSlowP1) : halfSpeedP1);
-            case Speed::Normal: return !enabled ? 0.9 :  ( randomSpeed ? speedRandomiser(minSpeedNormalP1, maxSpeedNormalP1) : fullSpeedP1);
-            case Speed::Fast: return !enabled ? 1.1 :  ( randomSpeed ? speedRandomiser(minSpeedFastP1, maxSpeedFastP1) : doubleSpeedP1);
-            case Speed::Faster: return !enabled ? 1.3 :  ( randomSpeed ? speedRandomiser(minSpeedFasterP1, maxSpeedFasterP1) : tripleSpeedP1);
-            case Speed::Fastest: return !enabled ? 1.6 :  ( randomSpeed ? speedRandomiser(minSpeedFastestP1, maxSpeedFastestP1) : quadrupleSpeedP1);
+            case Speed::Normal: return !enabled ? 0.9 :  (randomSpeed ? speedRandomiser(minSpeedNormalP1, maxSpeedNormalP1) : fullSpeedP1);
+            case Speed::Fast: return !enabled ? 1.1 :  (randomSpeed ? speedRandomiser(minSpeedFastP1, maxSpeedFastP1) : doubleSpeedP1);
+            case Speed::Faster: return !enabled ? 1.3 :  (randomSpeed ? speedRandomiser(minSpeedFasterP1, maxSpeedFasterP1) : tripleSpeedP1);
+            case Speed::Fastest: return !enabled ? 1.6 :  (randomSpeed ? speedRandomiser(minSpeedFastestP1, maxSpeedFastestP1) : quadrupleSpeedP1);
         }
     } else {
         switch (speed) {
-            case Speed::Slow: return (!enabled && !enabled2p) ? 0.7 :  ( randomSpeed ? speedRandomiser(minSpeedSlowP2, maxSpeedSlowP2) : halfSpeedP2);
-            case Speed::Normal: return (!enabled && !enabled2p) ? 0.9 :  ( randomSpeed ? speedRandomiser(minSpeedNormalP2, maxSpeedNormalP2) : fullSpeedP2);
-            case Speed::Fast: return (!enabled && !enabled2p) ? 1.1 :  ( randomSpeed ? speedRandomiser(minSpeedFastP2, maxSpeedFastP2) : doubleSpeedP2);
-            case Speed::Faster: return (!enabled && !enabled2p) ? 1.3 :  ( randomSpeed ? speedRandomiser(minSpeedFasterP2, maxSpeedFasterP2) : tripleSpeedP2);
-            case Speed::Fastest: return (!enabled && !enabled2p) ? 1.6 :  ( randomSpeed ? speedRandomiser(minSpeedFastestP2, maxSpeedFastestP2) : quadrupleSpeedP2);
+            case Speed::Slow: return (!enabled && !enabled2p) ? 0.7 :  (randomSpeed ? speedRandomiser(minSpeedSlowP2, maxSpeedSlowP2) : halfSpeedP2);
+            case Speed::Normal: return (!enabled && !enabled2p) ? 0.9 :  (randomSpeed ? speedRandomiser(minSpeedNormalP2, maxSpeedNormalP2) : fullSpeedP2);
+            case Speed::Fast: return (!enabled && !enabled2p) ? 1.1 :  (randomSpeed ? speedRandomiser(minSpeedFastP2, maxSpeedFastP2) : doubleSpeedP2);
+            case Speed::Faster: return (!enabled && !enabled2p) ? 1.3 :  (randomSpeed ? speedRandomiser(minSpeedFasterP2, maxSpeedFasterP2) : tripleSpeedP2);
+            case Speed::Fastest: return (!enabled && !enabled2p) ? 1.6 :  (randomSpeed ? speedRandomiser(minSpeedFastestP2, maxSpeedFastestP2) : quadrupleSpeedP2);
         }
     }
 }

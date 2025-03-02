@@ -9,6 +9,11 @@ using namespace geode::prelude;
 // for the randomised numbers
 #include <random>
 
+#define GET_SETTING_BOOL(value, name) bool value = Mod::get()->getSettingValue<bool>(name)
+#define GET_SETTING_FLOAT(value, name) float value = static_cast<float>(Mod::get()->getSettingValue<double>(name))
+
+#define DEBUG_OPTIONS true
+
 // randomised speed logic
 float speedRandomiser(float minSpeed, float maxSpeed) {
     static std::default_random_engine e;
@@ -16,44 +21,44 @@ float speedRandomiser(float minSpeed, float maxSpeed) {
     return dis(e);
 }
 
-double portalSpeeds(Speed speed, bool isPlayer1) {
-    bool enabled     = Mod::get()->getSettingValue<bool>("enable-mod");
-    bool randomSpeed = Mod::get()->getSettingValue<bool>("random-speed");
-    bool enabled2p   = Mod::get()->getSettingValue<bool>("enable-2p-mod");
+float portalSpeeds(Speed speed, bool isPlayer1) {
+    GET_SETTING_BOOL(enabled, "enable-mod");
+    GET_SETTING_BOOL(randomSpeed, "random-speed");
+    GET_SETTING_BOOL(enabled2p, "enable-mod-2p");
 
     // Player 1 settings
-    float minSpeedSlowP1 = static_cast<float>(Mod::get()->getSettingValue<double>("min-speed-slow"));
-    float maxSpeedSlowP1 = static_cast<float>(Mod::get()->getSettingValue<double>("max-speed-slow"));
-    float minSpeedNormalP1 = static_cast<float>(Mod::get()->getSettingValue<double>("min-speed-normal"));
-    float maxSpeedNormalP1 = static_cast<float>(Mod::get()->getSettingValue<double>("max-speed-normal"));
-    float minSpeedFastP1 = static_cast<float>(Mod::get()->getSettingValue<double>("min-speed-fast"));
-    float maxSpeedFastP1 = static_cast<float>(Mod::get()->getSettingValue<double>("max-speed-fast"));
-    float minSpeedFasterP1 = static_cast<float>(Mod::get()->getSettingValue<double>("min-speed-faster"));
-    float maxSpeedFasterP1 = static_cast<float>(Mod::get()->getSettingValue<double>("max-speed-faster"));
-    float minSpeedFastestP1 = static_cast<float>(Mod::get()->getSettingValue<double>("min-speed-fastest"));
-    float maxSpeedFastestP1 = static_cast<float>(Mod::get()->getSettingValue<double>("max-speed-fastest"));
-    float halfSpeedP1 = static_cast<float>(Mod::get()->getSettingValue<double>("half-speed"));
-    float fullSpeedP1 = static_cast<float>(Mod::get()->getSettingValue<double>("full-speed"));
-    float doubleSpeedP1 = static_cast<float>(Mod::get()->getSettingValue<double>("double-speed"));
-    float tripleSpeedP1 = static_cast<float>(Mod::get()->getSettingValue<double>("triple-speed"));
-    float quadrupleSpeedP1 = static_cast<float>(Mod::get()->getSettingValue<double>("quadruple-speed"));
+    GET_SETTING_FLOAT(minSpeedSlowP1, "min-speed-slow-p1");
+    GET_SETTING_FLOAT(maxSpeedSlowP1, "max-speed-slow-p1");
+    GET_SETTING_FLOAT(minSpeedNormalP1, "min-speed-normal-p1");
+    GET_SETTING_FLOAT(maxSpeedNormalP1, "max-speed-normal-p1");
+    GET_SETTING_FLOAT(minSpeedFastP1, "min-speed-fast-p1");
+    GET_SETTING_FLOAT(maxSpeedFastP1, "max-speed-fast-p1");
+    GET_SETTING_FLOAT(minSpeedFasterP1, "min-speed-faster-p1");
+    GET_SETTING_FLOAT(maxSpeedFasterP1, "max-speed-faster-p1");
+    GET_SETTING_FLOAT(minSpeedFastestP1, "min-speed-fastest-p1");
+    GET_SETTING_FLOAT(maxSpeedFastestP1, "max-speed-fastest-p1");
+    GET_SETTING_FLOAT(halfSpeedP1, "half-speed-p1");
+    GET_SETTING_FLOAT(fullSpeedP1, "full-speed-p1");
+    GET_SETTING_FLOAT(doubleSpeedP1, "double-speed-p1");
+    GET_SETTING_FLOAT(tripleSpeedP1, "triple-speed-p1");
+    GET_SETTING_FLOAT(quadrupleSpeedP1, "quadruple-speed-p1");
 
     // Player 2 settings
-    float minSpeedSlowP2 = static_cast<float>(Mod::get()->getSettingValue<double>("min-speed-slow-p2"));
-    float maxSpeedSlowP2 = static_cast<float>(Mod::get()->getSettingValue<double>("max-speed-slow-p2"));
-    float minSpeedNormalP2 = static_cast<float>(Mod::get()->getSettingValue<double>("min-speed-normal-p2"));
-    float maxSpeedNormalP2 = static_cast<float>(Mod::get()->getSettingValue<double>("max-speed-normal-p2"));
-    float minSpeedFastP2 = static_cast<float>(Mod::get()->getSettingValue<double>("min-speed-fast-p2"));
-    float maxSpeedFastP2 = static_cast<float>(Mod::get()->getSettingValue<double>("max-speed-fast-p2"));
-    float minSpeedFasterP2 = static_cast<float>(Mod::get()->getSettingValue<double>("min-speed-faster-p2"));
-    float maxSpeedFasterP2 = static_cast<float>(Mod::get()->getSettingValue<double>("max-speed-faster-p2"));
-    float minSpeedFastestP2 = static_cast<float>(Mod::get()->getSettingValue<double>("min-speed-fastest-p2"));
-    float maxSpeedFastestP2 = static_cast<float>(Mod::get()->getSettingValue<double>("max-speed-fastest-p2"));
-    float halfSpeedP2 = static_cast<float>(Mod::get()->getSettingValue<double>("half-speed-p2"));
-    float fullSpeedP2 = static_cast<float>(Mod::get()->getSettingValue<double>("full-speed-p2"));
-    float doubleSpeedP2 = static_cast<float>(Mod::get()->getSettingValue<double>("double-speed-p2"));
-    float tripleSpeedP2 = static_cast<float>(Mod::get()->getSettingValue<double>("triple-speed-p2"));
-    float quadrupleSpeedP2 = static_cast<float>(Mod::get()->getSettingValue<double>("quadruple-speed-p2"));
+    GET_SETTING_FLOAT(minSpeedSlowP2, "min-speed-slow-p2");
+    GET_SETTING_FLOAT(maxSpeedSlowP2, "max-speed-slow-p2");
+    GET_SETTING_FLOAT(minSpeedNormalP2, "min-speed-normal-p2");
+    GET_SETTING_FLOAT(maxSpeedNormalP2, "max-speed-normal-p2");
+    GET_SETTING_FLOAT(minSpeedFastP2, "min-speed-fast-p2");
+    GET_SETTING_FLOAT(maxSpeedFastP2, "max-speed-fast-p2");
+    GET_SETTING_FLOAT(minSpeedFasterP2, "min-speed-faster-p2");
+    GET_SETTING_FLOAT(maxSpeedFasterP2, "max-speed-faster-p2");
+    GET_SETTING_FLOAT(minSpeedFastestP2, "min-speed-fastest-p2");
+    GET_SETTING_FLOAT(maxSpeedFastestP2, "max-speed-fastest-p2");
+    GET_SETTING_FLOAT(halfSpeedP2, "half-speed-p2");
+    GET_SETTING_FLOAT(fullSpeedP2, "full-speed-p2");
+    GET_SETTING_FLOAT(doubleSpeedP2, "double-speed-p2");
+    GET_SETTING_FLOAT(tripleSpeedP2, "triple-speed-p2");
+    GET_SETTING_FLOAT(quadrupleSpeedP2, "quadruple-speed-p2");
     
     if (isPlayer1) {
         switch (speed) {
@@ -79,6 +84,9 @@ double portalSpeeds(Speed speed, bool isPlayer1) {
 class $modify(SpeedPlayer, PlayerObject) {
     void updateTimeMod(Speed speed, bool p1, bool isPlayer1) {
         float playerSpeed = portalSpeeds(speed, isPlayer1);
+#if DEBUG_OPTIONS
+        log::debug("Player speed: {}", playerSpeed);
+#endif
         PlayerObject::updateTimeMod(playerSpeed, p1);
         this->m_playerSpeed = playerSpeed;
     }
@@ -116,6 +124,10 @@ class $modify(SpeedEffectGameObject, EffectGameObject) {
 
         bool isPlayer1 = !Mod::get()->getSettingValue<bool>("enable-mod-2p") ? true : (this->m_activatedByPlayer1 ? true : ((p0->m_gameState.m_isDualMode && this->m_activatedByPlayer2) ? false : true));
         SpeedGJBGL *gameLayer = as<SpeedGJBGL *>(p0);
+
+#if DEBUG_OPTIONS
+        log::debug("isPlayer1: {}", isPlayer1);
+#endif
 
         if (this->m_objectID == 200) // 0.5x portal
             gameLayer->updateTimeMod(Speed::Slow, this->m_hasNoEffects, isPlayer1);

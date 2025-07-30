@@ -97,16 +97,16 @@ class $modify(SpeedGJBGL, GJBaseGameLayer) {
     void updateTimeMod(Speed speed, bool p1, bool isPlayer1) {
         this->m_gameState.m_timeModRelated  = 0;
         this->m_gameState.m_timeModRelated2 = 0;
-        as<SpeedPlayer *>(this->m_player1)->updateTimeMod(speed, p1, isPlayer1); 
+        static_cast<SpeedPlayer *>(this->m_player1)->updateTimeMod(speed, p1, isPlayer1); 
         if (this->m_gameState.m_isDualMode)
-            as<SpeedPlayer *>(this->m_player2)->updateTimeMod(speed, p1, !isPlayer1);
+            static_cast<SpeedPlayer *>(this->m_player2)->updateTimeMod(speed, p1, !isPlayer1);
     }
 
     void setupLevelStart(LevelSettingsObject* p0) {
         GJBaseGameLayer::setupLevelStart(p0);
 
         bool isPlayer1 = !Mod::get()->getSettingValue<bool>("enable-mod-2p") ? true : (this->m_gameState.m_isDualMode ? false : true);
-        SpeedPlayer *player = isPlayer1 ? as<SpeedPlayer *>(this->m_player1) : as<SpeedPlayer *>(this->m_player2);
+        SpeedPlayer *player = isPlayer1 ? static_cast<SpeedPlayer *>(this->m_player1) : static_cast<SpeedPlayer *>(this->m_player2);
         
         switch (p0->m_startSpeed) {
             case Speed::Slow:    player->updateTimeMod(Speed::Slow, 0, isPlayer1);    break;
@@ -123,7 +123,7 @@ class $modify(SpeedEffectGameObject, EffectGameObject) {
         EffectGameObject::triggerObject(p0, p1, p2);
 
         bool isPlayer1 = !Mod::get()->getSettingValue<bool>("enable-mod-2p") ? true : (this->m_activatedByPlayer1 ? true : ((p0->m_gameState.m_isDualMode && this->m_activatedByPlayer2) ? false : true));
-        SpeedGJBGL *gameLayer = as<SpeedGJBGL *>(p0);
+        SpeedGJBGL *gameLayer = static_cast<SpeedGJBGL *>(p0);
 
 #if DEBUG_OPTIONS
         log::debug("isPlayer1: {}", isPlayer1);

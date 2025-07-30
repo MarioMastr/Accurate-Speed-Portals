@@ -15,11 +15,11 @@ using namespace geode::prelude;
 #define DEBUG_OPTIONS true
 
 // portal object IDs
-const int HALF_SPEED_PORTAL = 200;
+const int SLOW_SPEED_PORTAL = 200;
 const int NORMAL_SPEED_PORTAL = 201;
-const int DOUBLE_SPEED_PORTAL = 202;
-const int TRIPLE_SPEED_PORTAL = 203;
-const int QUADRUPLE_SPEED_PORTAL = 1334;
+const int FAST_SPEED_PORTAL = 202;
+const int FASTER_SPEED_PORTAL = 203;
+const int FASTEST_SPEED_PORTAL = 1334;
 
 // randomised speed logic
 float speedRandomiser(float minSpeed, float maxSpeed) {
@@ -44,11 +44,11 @@ float portalSpeeds(Speed speed, bool isPlayer1) {
     GET_SETTING_FLOAT(maxSpeedFasterP1, "max-speed-faster-p1");
     GET_SETTING_FLOAT(minSpeedFastestP1, "min-speed-fastest-p1");
     GET_SETTING_FLOAT(maxSpeedFastestP1, "max-speed-fastest-p1");
-    GET_SETTING_FLOAT(halfSpeedP1, "half-speed-p1");
-    GET_SETTING_FLOAT(fullSpeedP1, "full-speed-p1");
-    GET_SETTING_FLOAT(doubleSpeedP1, "double-speed-p1");
-    GET_SETTING_FLOAT(tripleSpeedP1, "triple-speed-p1");
-    GET_SETTING_FLOAT(quadrupleSpeedP1, "quadruple-speed-p1");
+    GET_SETTING_FLOAT(slowSpeedP1, "slow-speed-p1");
+    GET_SETTING_FLOAT(fullSpeedP1, "normal-speed-p1");
+    GET_SETTING_FLOAT(fastSpeedP1, "fast-speed-p1");
+    GET_SETTING_FLOAT(fasterSpeedP1, "faster-speed-p1");
+    GET_SETTING_FLOAT(fastestSpeedP1, "fastest-speed-p1");
 
     // Player 2 settings
     GET_SETTING_FLOAT(minSpeedSlowP2, "min-speed-slow-p2");
@@ -61,27 +61,27 @@ float portalSpeeds(Speed speed, bool isPlayer1) {
     GET_SETTING_FLOAT(maxSpeedFasterP2, "max-speed-faster-p2");
     GET_SETTING_FLOAT(minSpeedFastestP2, "min-speed-fastest-p2");
     GET_SETTING_FLOAT(maxSpeedFastestP2, "max-speed-fastest-p2");
-    GET_SETTING_FLOAT(halfSpeedP2, "half-speed-p2");
-    GET_SETTING_FLOAT(fullSpeedP2, "full-speed-p2");
-    GET_SETTING_FLOAT(doubleSpeedP2, "double-speed-p2");
-    GET_SETTING_FLOAT(tripleSpeedP2, "triple-speed-p2");
-    GET_SETTING_FLOAT(quadrupleSpeedP2, "quadruple-speed-p2");
+    GET_SETTING_FLOAT(slowSpeedP2, "slow-speed-p2");
+    GET_SETTING_FLOAT(fullSpeedP2, "normal-speed-p2");
+    GET_SETTING_FLOAT(fastSpeedP2, "fast-speed-p2");
+    GET_SETTING_FLOAT(fasterSpeedP2, "faster-speed-p2");
+    GET_SETTING_FLOAT(fastestSpeedP2, "fastest-speed-p2");
     
     if (isPlayer1) {
         switch (speed) {
-            case Speed::Slow: return !enabled ? 0.7 :  (randomSpeed ? speedRandomiser(minSpeedSlowP1, maxSpeedSlowP1) : halfSpeedP1);
+            case Speed::Slow: return !enabled ? 0.7 :  (randomSpeed ? speedRandomiser(minSpeedSlowP1, maxSpeedSlowP1) : slowSpeedP1);
             case Speed::Normal: return !enabled ? 0.9 :  (randomSpeed ? speedRandomiser(minSpeedNormalP1, maxSpeedNormalP1) : fullSpeedP1);
-            case Speed::Fast: return !enabled ? 1.1 :  (randomSpeed ? speedRandomiser(minSpeedFastP1, maxSpeedFastP1) : doubleSpeedP1);
-            case Speed::Faster: return !enabled ? 1.3 :  (randomSpeed ? speedRandomiser(minSpeedFasterP1, maxSpeedFasterP1) : tripleSpeedP1);
-            case Speed::Fastest: return !enabled ? 1.6 :  (randomSpeed ? speedRandomiser(minSpeedFastestP1, maxSpeedFastestP1) : quadrupleSpeedP1);
+            case Speed::Fast: return !enabled ? 1.1 :  (randomSpeed ? speedRandomiser(minSpeedFastP1, maxSpeedFastP1) : fastSpeedP1);
+            case Speed::Faster: return !enabled ? 1.3 :  (randomSpeed ? speedRandomiser(minSpeedFasterP1, maxSpeedFasterP1) : fasterSpeedP1);
+            case Speed::Fastest: return !enabled ? 1.6 :  (randomSpeed ? speedRandomiser(minSpeedFastestP1, maxSpeedFastestP1) : fastestSpeedP1);
         }
     } else {
         switch (speed) {
-            case Speed::Slow: return (!enabled && !enabled2p) ? 0.7 :  (randomSpeed ? speedRandomiser(minSpeedSlowP2, maxSpeedSlowP2) : halfSpeedP2);
+            case Speed::Slow: return (!enabled && !enabled2p) ? 0.7 :  (randomSpeed ? speedRandomiser(minSpeedSlowP2, maxSpeedSlowP2) : slowSpeedP2);
             case Speed::Normal: return (!enabled && !enabled2p) ? 0.9 :  (randomSpeed ? speedRandomiser(minSpeedNormalP2, maxSpeedNormalP2) : fullSpeedP2);
-            case Speed::Fast: return (!enabled && !enabled2p) ? 1.1 :  (randomSpeed ? speedRandomiser(minSpeedFastP2, maxSpeedFastP2) : doubleSpeedP2);
-            case Speed::Faster: return (!enabled && !enabled2p) ? 1.3 :  (randomSpeed ? speedRandomiser(minSpeedFasterP2, maxSpeedFasterP2) : tripleSpeedP2);
-            case Speed::Fastest: return (!enabled && !enabled2p) ? 1.6 :  (randomSpeed ? speedRandomiser(minSpeedFastestP2, maxSpeedFastestP2) : quadrupleSpeedP2);
+            case Speed::Fast: return (!enabled && !enabled2p) ? 1.1 :  (randomSpeed ? speedRandomiser(minSpeedFastP2, maxSpeedFastP2) : fastSpeedP2);
+            case Speed::Faster: return (!enabled && !enabled2p) ? 1.3 :  (randomSpeed ? speedRandomiser(minSpeedFasterP2, maxSpeedFasterP2) : fasterSpeedP2);
+            case Speed::Fastest: return (!enabled && !enabled2p) ? 1.6 :  (randomSpeed ? speedRandomiser(minSpeedFastestP2, maxSpeedFastestP2) : fastestSpeedP2);
         }
     }
 }
@@ -109,7 +109,7 @@ class $modify(SpeedGJBGL, GJBaseGameLayer) {
             static_cast<SpeedPlayer *>(this->m_player2)->updateTimeMod(speed, p1, !isPlayer1);
     }
 
-    void setupLevelStart(LevelSettingsObject* p0) {
+    void setupLevelStart(LevelSettingsObject *p0) {
         GJBaseGameLayer::setupLevelStart(p0);
 
         bool isPlayer1 = !Mod::get()->getSettingValue<bool>("enable-mod-2p") ? true : (this->m_gameState.m_isDualMode ? false : true);
@@ -126,7 +126,7 @@ class $modify(SpeedGJBGL, GJBaseGameLayer) {
 };
 
 class $modify(SpeedEffectGameObject, EffectGameObject) {
-    void triggerObject(GJBaseGameLayer* p0, int p1, gd::vector<int> const* p2) {
+    void triggerObject(GJBaseGameLayer *p0, int p1, gd::vector<int> const *p2) {
         EffectGameObject::triggerObject(p0, p1, p2);
 
         bool isPlayer1 = !Mod::get()->getSettingValue<bool>("enable-mod-2p") ? true : (this->m_activatedByPlayer1 ? true : ((p0->m_gameState.m_isDualMode && this->m_activatedByPlayer2) ? false : true));
@@ -136,15 +136,15 @@ class $modify(SpeedEffectGameObject, EffectGameObject) {
         log::debug("isPlayer1: {}", isPlayer1);
 #endif
 
-        if (this->m_objectID == HALF_SPEED_PORTAL)
+        if (this->m_objectID == SLOW_SPEED_PORTAL)
             gameLayer->updateTimeMod(Speed::Slow, this->m_hasNoEffects, isPlayer1);
         else if (this->m_objectID == NORMAL_SPEED_PORTAL)
             gameLayer->updateTimeMod(Speed::Normal, this->m_hasNoEffects, isPlayer1);
-        else if (this->m_objectID == DOUBLE_SPEED_PORTAL)
+        else if (this->m_objectID == FAST_SPEED_PORTAL)
             gameLayer->updateTimeMod(Speed::Fast, this->m_hasNoEffects, isPlayer1);
-        else if (this->m_objectID == TRIPLE_SPEED_PORTAL)
+        else if (this->m_objectID == FASTER_SPEED_PORTAL)
             gameLayer->updateTimeMod(Speed::Faster, this->m_hasNoEffects, isPlayer1);
-        else if (this->m_objectID == QUADRUPLE_SPEED_PORTAL)
+        else if (this->m_objectID == FASTEST_SPEED_PORTAL)
             gameLayer->updateTimeMod(Speed::Fastest, this->m_hasNoEffects, isPlayer1);
     }
 };

@@ -37,10 +37,10 @@
             "type": "bool",
             "default": true
         },
-        "min-speed-slow": {
+        "min-speed-slow-p1": {
             "enable-if": "setting:enable-mod && setting:random-speed",
             "name": "Minimum speed for slow",
-            "description": "Minimum speed to use in the randomisation range for slow speed portal.",
+            "description": "Minimum speed to use in the randomisation range for slow speed portal for Player 1.",
             "type": "float",
             "default": 0.0,
             "min": 0.0,
@@ -54,10 +54,10 @@
                 "input": true
             }
         },
-        "max-speed-slow": {
+        "max-speed-slow-p1": {
             "enable-if": "setting:enable-mod && setting:random-speed",
             "name": "Maximum speed for slow",
-            "description": "Maximum speed to use in the randomisation range for slow speed portal.",
+            "description": "Maximum speed to use in the randomisation range for slow speed portal for Player 1.",
             "type": "float",
             "default": 0.7,
             "min": 0.0,
@@ -71,10 +71,10 @@
                 "input": true
             }
         },
-        "min-speed-normal": {
+        "min-speed-normal-p1": {
             "enable-if": "setting:enable-mod && setting:random-speed",
             "name": "Minimum speed for normal",
-            "description": "Minimum speed to use in the randomisation range for normal speed portal.",
+            "description": "Minimum speed to use in the randomisation range for normal speed portal for Player 1.",
             "type": "float",
             "default": 0.0,
             "min": 0.0,
@@ -88,10 +88,10 @@
                 "input": true
             }
         },
-        "max-speed-normal": {
+        "max-speed-normal-p1": {
             "enable-if": "setting:enable-mod && setting:random-speed",
             "name": "Maximum speed for normal",
-            "description": "Maximum speed to use in the randomisation range for normal speed portal.",
+            "description": "Maximum speed to use in the randomisation range for normal speed portal for Player 1.",
             "type": "float",
             "default": 0.9,
             "min": 0.0,
@@ -105,10 +105,10 @@
                 "input": true
             }
         },
-        "min-speed-fast": {
+        "min-speed-fast-p1": {
             "enable-if": "setting:enable-mod && setting:random-speed",
             "name": "Minimum speed for fast",
-            "description": "Minimum speed to use in the randomisation range for fast speed portal.",
+            "description": "Minimum speed to use in the randomisation range for fast speed portal for Player 1.",
             "type": "float",
             "default": 0.0,
             "min": 0.0,
@@ -122,10 +122,10 @@
                 "input": true
             }
         },
-        "max-speed-fast": {
+        "max-speed-fast-p1": {
             "enable-if": "setting:enable-mod && setting:random-speed",
             "name": "Maximum speed for fast",
-            "description": "Maximum speed to use in the randomisation range for fast speed portal.",
+            "description": "Maximum speed to use in the randomisation range for fast speed portal for Player 1.",
             "type": "float",
             "default": 1.1,
             "min": 0.0,
@@ -139,10 +139,10 @@
                 "input": true
             }
         },
-        "min-speed-faster": {
+        "min-speed-faster-p1": {
             "enable-if": "setting:enable-mod && setting:random-speed",
             "name": "Minimum speed for faster",
-            "description": "Minimum speed to use in the randomisation range for faster speed portal.",
+            "description": "Minimum speed to use in the randomisation range for faster speed portal for Player 1.",
             "type": "float",
             "default": 0.0,
             "min": 0.0,
@@ -156,10 +156,10 @@
                 "input": true
             }
         },
-        "max-speed-faster": {
+        "max-speed-faster-p1": {
             "enable-if": "setting:enable-mod && setting:random-speed",
             "name": "Maximum speed for faster",
-            "description": "Maximum speed to use in the randomisation range for faster speed portal.",
+            "description": "Maximum speed to use in the randomisation range for faster speed portal for Player 1.",
             "type": "float",
             "default": 1.3,
             "min": 0.0,
@@ -173,10 +173,10 @@
                 "input": true
             }
         },
-        "min-speed-fastest": {
+        "min-speed-fastest-p1": {
             "enable-if": "setting:enable-mod && setting:random-speed",
             "name": "Minimum speed for fastest",
-            "description": "Minimum speed to use in the randomisation range for fastest speed portal.",
+            "description": "Minimum speed to use in the randomisation range for fastest speed portal for Player 1.",
             "type": "float",
             "default": 0.0,
             "min": 0.0,
@@ -190,10 +190,10 @@
                 "input": true
             }
         },
-        "max-speed-fastest": {
+        "max-speed-fastest-p1": {
             "enable-if": "setting:enable-mod && setting:random-speed",
             "name": "Maximum speed for fastest",
-            "description": "Maximum speed to use in the randomisation range for fastest speed portal.",
+            "description": "Maximum speed to use in the randomisation range for fastest speed portal for Player 1.",
             "type": "float",
             "default": 1.6,
             "min": 0.0,
@@ -212,10 +212,10 @@
             "name": "Speed Adjustment Options",
             "description": "Options for customising the speed adjustment parts of this mod. These options will not have any effect if the randomiser is enabled."
         },
-        "half-speed": {
+        "slow-speed-p1": {
             "enable-if": "setting:enable-mod",
             "name": "slow Speed",
-            "description": "Adjusts the speed of the slow portal.",
+            "description": "Adjusts the speed of the slow portal for Player 1.",
             "type": "float",
             "default": 0.5,
             "min": 0.0,
@@ -229,10 +229,10 @@
                 "input": true
             }
         },
-        "full-speed": {
+        "normal-speed-p1": {
             "enable-if": "setting:enable-mod",
             "name": "normal Speed",
-            "description": "Adjusts the speed of the normal portal.",
+            "description": "Adjusts the speed of the normal portal for Player 1.",
             "type": "float",
             "default": 1.0,
             "min": 0.0,
@@ -246,10 +246,10 @@
                 "input": true
             }
         },
-        "double-speed": {
+        "fast-speed-p1": {
             "enable-if": "setting:enable-mod",
             "name": "fast Speed",
-            "description": "Adjusts the speed of the fast portal.",
+            "description": "Adjusts the speed of the fast portal for Player 1.",
             "type": "float",
             "default": 2.0,
             "min": 0.0,
@@ -263,10 +263,10 @@
                 "input": true
             }
         },
-        "triple-speed": {
+        "faster-speed-p1": {
             "enable-if": "setting:enable-mod",
             "name": "faster Speed",
-            "description": "Adjusts the speed of the faster portal.",
+            "description": "Adjusts the speed of the faster portal for Player 1.",
             "type": "float",
             "default": 3.0,
             "min": 0.0,
@@ -280,10 +280,10 @@
                 "input": true
             }
         },
-        "quadruple-speed": {
+        "fastest-speed-p1": {
             "enable-if": "setting:enable-mod",
             "name": "fastest Speed",
-            "description": "Adjusts the speed of the fastest portal.",
+            "description": "Adjusts the speed of the fastest portal for Player 1.",
             "type": "float",
             "default": 4.0,
             "min": 0.0,
@@ -444,7 +444,7 @@
         "slow-speed-p2": {
             "enable-if": "setting:enable-mod-2p && setting:enable-mod",
             "name": "Slow Speed (Player 2)",
-            "description": "Set the speed for Player 2 at slow.",
+            "description": "Adjusts the speed of the slow portal for Player 2.",
             "type": "float",
             "default": 0.0,
             "min": 0.0,
@@ -458,7 +458,7 @@
         "normal-speed-p2": {
             "enable-if": "setting:enable-mod-2p && setting:enable-mod",
             "name": "Normal Speed (Player 2)",
-            "description": "Set the speed for Player 2 at normal.",
+            "description": "Adjusts the speed of the normal portal for Player 2.",
             "type": "float",
             "default": 1.0,
             "min": 0.0,
@@ -472,7 +472,7 @@
         "fast-speed-p2": {
             "enable-if": "setting:enable-mod-2p && setting:enable-mod",
             "name": "Fast Speed (Player 2)",
-            "description": "Set the speed for Player 2 at fast.",
+            "description": "Adjusts the speed of the fast portal for Player 2.",
             "type": "float",
             "default": 1.5,
             "min": 0.0,
@@ -486,7 +486,7 @@
         "faster-speed-p2": {
             "enable-if": "setting:enable-mod-2p && setting:enable-mod",
             "name": "Faster Speed (Player 2)",
-            "description": "Set the speed for Player 2 at faster.",
+            "description": "Adjusts the speed of the faster portal for Player 2.",
             "type": "float",
             "default": 2.0,
             "min": 0.0,
@@ -500,7 +500,7 @@
         "fastest-speed-p2": {
             "enable-if": "setting:enable-mod-2p && setting:enable-mod",
             "name": "Fastest Speed (Player 2)",
-            "description": "Set the speed for Player 2 at fastest.",
+            "description": "Adjusts the speed of the fastest portal for Player 2.",
             "type": "float",
             "default": 3.0,
             "min": 0.0,

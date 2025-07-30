@@ -1,6 +1,7 @@
 # 2.0.0
 Wait why does this have so many downloads now; I completely forgot about this mod LOL, tysm!!!!
-- iOS support
+- iOS support.
+- Bug fixes and performance improvements.
 # 1.2.0
 - Added individual randomisation ranges for each portal.
 - Various under-the-hood cleanups and improvements.

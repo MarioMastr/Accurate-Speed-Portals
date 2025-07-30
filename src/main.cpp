@@ -14,6 +14,13 @@ using namespace geode::prelude;
 
 #define DEBUG_OPTIONS true
 
+// portal object IDs
+const int HALF_SPEED_PORTAL = 200;
+const int NORMAL_SPEED_PORTAL = 201;
+const int DOUBLE_SPEED_PORTAL = 202;
+const int TRIPLE_SPEED_PORTAL = 203;
+const int QUADRUPLE_SPEED_PORTAL = 1334;
+
 // randomised speed logic
 float speedRandomiser(float minSpeed, float maxSpeed) {
     static std::default_random_engine e;
@@ -129,15 +136,15 @@ class $modify(SpeedEffectGameObject, EffectGameObject) {
         log::debug("isPlayer1: {}", isPlayer1);
 #endif
 
-        if (this->m_objectID == 200) // 0.5x portal
+        if (this->m_objectID == HALF_SPEED_PORTAL)
             gameLayer->updateTimeMod(Speed::Slow, this->m_hasNoEffects, isPlayer1);
-        else if (this->m_objectID == 201) // 1x portal
+        else if (this->m_objectID == NORMAL_SPEED_PORTAL)
             gameLayer->updateTimeMod(Speed::Normal, this->m_hasNoEffects, isPlayer1);
-        else if (this->m_objectID == 202) // 2x portal
+        else if (this->m_objectID == DOUBLE_SPEED_PORTAL)
             gameLayer->updateTimeMod(Speed::Fast, this->m_hasNoEffects, isPlayer1);
-        else if (this->m_objectID == 203) // 3x portal
+        else if (this->m_objectID == TRIPLE_SPEED_PORTAL)
             gameLayer->updateTimeMod(Speed::Faster, this->m_hasNoEffects, isPlayer1);
-        else if (this->m_objectID == 1334) // 4x portal
+        else if (this->m_objectID == QUADRUPLE_SPEED_PORTAL)
             gameLayer->updateTimeMod(Speed::Fastest, this->m_hasNoEffects, isPlayer1);
     }
 };
